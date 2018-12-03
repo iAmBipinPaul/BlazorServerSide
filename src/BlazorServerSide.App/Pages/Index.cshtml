@@ -1,0 +1,22 @@
+﻿@page "/"
+@inject BlazorServerSide.ServiceProxy.Client client
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+@functions{
+
+
+    protected override async Task OnInitAsync()
+    {
+        var res  = await client.GetAllAsync();
+
+        Console.WriteLine(res);
+
+    }
+
+} 
